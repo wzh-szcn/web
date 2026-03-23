@@ -6,6 +6,13 @@
     <title>Mobile Phone Data Shows Spatial and Socioeconomic Inequalities in Hospital Utilization</title>
     <link rel="stylesheet" href="styles.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- AMap (Gaode Map) API - 请替换为您自己的高德地图key -->
+    <script type="text/javascript">
+        window._AMapSecurityConfig = {
+            securityJsCode: '34572100a631eaa83798e6ad8824637c',
+        }
+    </script>
+    <script type="text/javascript" src="https://webapi.amap.com/maps?v=2.0&key=cece330898aa63c4a23b7b6da66f3b64&lang=en"></script>
 </head>
 <body>
     <!-- Lab Logos (Left) -->
@@ -24,6 +31,7 @@
     <!-- Navigation (Right) -->
     <nav class="nav-right">
         <a href="#video-section">Overall</a>
+        <a href="#map-section">Indicators</a>
         <a href="#figures-section">Findings</a>
         <a href="#team-section">Team</a>
     </nav>
@@ -48,6 +56,46 @@
                 <p class="intro-text">
                     This study examines hospital bypass behaviour in China, where patients often forgo nearby hospitals and travel farther for better care. Using anonymized mobile-phone data from 96 million users across 11 Chinese cities, we reveal how widespread this behaviour is, how it varies across socioeconomic groups, and what behavioural mechanisms drive it. The findings show that lower-income groups often shoulder a greater travel burden to compensate for structural spatial disadvantages in access to high-quality healthcare.
                 </p>
+            </div>
+            
+            <div class="hero-links">
+                <a href="#" class="link-card github-link" target="_blank">
+                    <div class="link-icon">
+                        <svg viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                        </svg>
+                    </div>
+                    <div class="link-text">
+                        <h3>Data Repository</h3>
+                        <p>Access the research data and code on GitHub</p>
+                    </div>
+                    <span class="link-arrow">→</span>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Section: Interactive Map -->
+    <section id="map-section" class="map-section">
+        <div class="section-header">
+            <h2>City Indicators</h2>
+        </div>
+        <div class="map-container">
+            <div id="baidu-map" class="baidu-map"></div>
+            <div class="map-legend">
+                <h4>Indicators</h4>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #e94560;"></span>
+                    <span>Bypass Rate (%)</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #4a90d9;"></span>
+                    <span>NNHI</span>
+                </div>
+                <div class="legend-item">
+                    <span class="legend-color" style="background: #50c878;"></span>
+                    <span>Extra Travel Distance (km)</span>
+                </div>
             </div>
         </div>
     </section>
@@ -157,39 +205,149 @@
             <h2>Research Team</h2>
         </div>
         
-        <div class="team-content">
-            <div class="authors-list">
-                <p class="authors">
-                    <a href="https://saup.szu.edu.cn/info/1089/2448.htm" target="_blank"><strong>Jizhe Xia</strong></a>, 
-                    <strong>Pei Ye</strong>, 
-                    <strong>Longyan Pan</strong>, 
-                    <strong>Di Zhang</strong>, 
-                    <strong>Zihao Wu</strong>, 
-                    <strong>Qiye Deng</strong>, 
-                    <strong>Xiana Chen</strong>, 
-                    <strong>Qingquan Li</strong>, 
-                    <strong>Carlo Ratti</strong>, 
-                    <strong>Michael Batty</strong>, 
-                    <strong>Ziqian Ye</strong>, 
-                    <strong>Chen Zhong</strong>, 
-                    <strong>Yang Yue</strong>, 
-                    <a href="https://saup.szu.edu.cn/info/1088/2783.htm" target="_blank"><strong>Wei Tu</strong></a><a href="mailto:tuwei@szu.edu.cn" class="email-icon" title="tuwei@szu.edu.cn"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
-                </p>
+        <div class="team-grid">
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/jizhe_xia.jpg" alt="Jizhe Xia" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>JX</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Jizhe Xia</h3>
+                    <p class="member-role">PhD Candidate</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
             </div>
-            
-            <div class="team-links">
-                <a href="#" class="link-card github-link" target="_blank">
-                    <div class="link-icon">
-                        <svg viewBox="0 0 24 24" fill="currentColor">
-                            <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
-                        </svg>
-                    </div>
-                    <div class="link-text">
-                        <h3>Data Repository</h3>
-                        <p>Access the research data and code on GitHub</p>
-                    </div>
-                    <span class="link-arrow">→</span>
-                </a>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/pei_ye.jpg" alt="Pei Ye" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>PY</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Pei Ye</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/longyan_pan.jpg" alt="Longyan Pan" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>LP</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Longyan Pan</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/di_zhang.jpg" alt="Di Zhang" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>DZ</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Di Zhang</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/zihao_wu.jpg" alt="Zihao Wu" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>ZW</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Zihao Wu</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/qiye_deng.jpg" alt="Qiye Deng" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>QD</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Qiye Deng</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/xiana_chen.jpg" alt="Xiana Chen" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>XC</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Xiana Chen</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/qingquan_li.jpg" alt="Qingquan Li" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>QL</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Qingquan Li</h3>
+                    <p class="member-role">Professor</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/carlo_ratti.jpg" alt="Carlo Ratti" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>CR</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Carlo Ratti</h3>
+                    <p class="member-role">Professor</p>
+                    <p class="member-affiliation">MIT</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/michael_batty.jpg" alt="Michael Batty" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>MB</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Michael Batty</h3>
+                    <p class="member-role">Professor</p>
+                    <p class="member-affiliation">UCL</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/ziqian_ye.jpg" alt="Ziqian Ye" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>ZY</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Ziqian Ye</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/chen_zhong.jpg" alt="Chen Zhong" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>CZ</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Chen Zhong</h3>
+                    <p class="member-role">Researcher</p>
+                    <p class="member-affiliation">UCL</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/yang_yue.jpg" alt="Yang Yue" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>YY</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Yang Yue</h3>
+                    <p class="member-role">Professor</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                </div>
+            </div>
+            <div class="team-member">
+                <div class="member-photo">
+                    <img src="sc/team/wei_tu.jpg" alt="Wei Tu" onerror="this.parentElement.innerHTML='<div class=\'photo-placeholder\'>WT</div>'">
+                </div>
+                <div class="member-info">
+                    <h3 class="member-name">Wei Tu</h3>
+                    <p class="member-role">Professor</p>
+                    <p class="member-affiliation">Shenzhen University</p>
+                    <a href="mailto:tuwei@szu.edu.cn" class="member-email" title="tuwei@szu.edu.cn">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                    </a>
+                </div>
             </div>
         </div>
     </section>
