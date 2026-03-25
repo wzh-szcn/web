@@ -785,6 +785,11 @@ body {
     border-color: rgba(233, 69, 96, 0.2);
 }
 
+.member-link {
+    display: block;
+    text-decoration: none;
+}
+
 .member-photo {
     width: 100px;
     height: 100px;
@@ -823,13 +828,6 @@ body {
     font-weight: 600;
     color: #1a1a2e;
     margin-bottom: 0.25rem;
-}
-
-.member-role {
-    font-size: 0.85rem;
-    color: #e94560;
-    margin-bottom: 0.25rem;
-    font-weight: 500;
 }
 
 .member-affiliation {
