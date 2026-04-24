@@ -384,7 +384,13 @@ class CityMap {
             viewMode: '2D',
             showLabel: true,
             features: ['bg', 'road', 'building', 'point'],
-            lang: 'en'
+            lang: 'en',
+            zoomEnable: false,
+            dragEnable: false,
+            scrollZoom: false,
+            doubleClickZoom: false,
+            touchZoom: false,
+            keyboardZoom: false
         });
 
         // Add city markers after map is ready
@@ -458,9 +464,11 @@ class CityMap {
             });
 
             // Create info window
+            // Qiqihar (index 5) is at the top-right of the map, offset info window to bottom-right
+            const infoOffset = index === 5 ? new AMap.Pixel(140, 60) : new AMap.Pixel(0, -40);
             const infoWindow = new AMap.InfoWindow({
                 content: this.createInfoContent(city, index),
-                offset: new AMap.Pixel(0, -40),
+                offset: infoOffset,
                 isCustom: true,
                 autoMove: false
             });
@@ -561,8 +569,8 @@ class CityMap {
         // Update legend selection
         this.updateLegendSelection(index);
         
-        // Draw city boundary with fitView
-        await this.drawCityBoundary(index, true);
+        // Draw city boundary without fitView
+        await this.drawCityBoundary(index, false);
     }
 
     closeInfoWindow() {
@@ -579,9 +587,6 @@ class CityMap {
         
         // Clear city boundary
         this.clearCityBoundary();
-        
-        // Reset map view to initial state
-        this.map.setZoomAndCenter(4.2, [107, 37]);
     }
 
     async drawCityBoundary(index, fitView = false) {
