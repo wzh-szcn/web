@@ -217,9 +217,9 @@ class CityMap {
                 lng: 116.4074,
                 lat: 39.9042,
                 indicators: {
-                    bypass: 85.2,
-                    nnhi: 3.8,
-                    distance: 12.5
+                    bypass: 83.39,
+                    nnhi: 21.31,
+                    distance: 216.86
                 }
             },
             {
@@ -230,9 +230,9 @@ class CityMap {
                 lng: 104.0665,
                 lat: 30.5728,
                 indicators: {
-                    bypass: 78.3,
-                    nnhi: 3.2,
-                    distance: 9.8
+                    bypass: 81.27,
+                    nnhi: 14.17,
+                    distance: 189.48
                 }
             },
             {
@@ -243,9 +243,9 @@ class CityMap {
                 lng: 113.2644,
                 lat: 23.1291,
                 indicators: {
-                    bypass: 81.5,
-                    nnhi: 3.6,
-                    distance: 10.8
+                    bypass: 79.80,
+                    nnhi: 19.10,
+                    distance: 211.28
                 }
             },
             {
@@ -256,9 +256,9 @@ class CityMap {
                 lng: 102.1038,
                 lat: 36.5029,
                 indicators: {
-                    bypass: 72.1,
-                    nnhi: 2.5,
-                    distance: 6.2
+                    bypass: 7.44,
+                    nnhi: 1.16,
+                    distance: 118.51
                 }
             },
             {
@@ -269,9 +269,9 @@ class CityMap {
                 lng: 100.9725,
                 lat: 22.7774,
                 indicators: {
-                    bypass: 68.5,
-                    nnhi: 2.1,
-                    distance: 5.8
+                    bypass: 43.40,
+                    nnhi: 3.15,
+                    distance: 125.07
                 }
             },
             {
@@ -282,9 +282,9 @@ class CityMap {
                 lng: 123.9535,
                 lat: 47.3481,
                 indicators: {
-                    bypass: 70.2,
-                    nnhi: 2.3,
-                    distance: 6.5
+                    bypass: 66.61,
+                    nnhi: 5.73,
+                    distance: 183.53
                 }
             },
             {
@@ -295,9 +295,9 @@ class CityMap {
                 lng: 88.8811,
                 lat: 29.2670,
                 indicators: {
-                    bypass: 65.8,
-                    nnhi: 1.9,
-                    distance: 4.5
+                    bypass: 28.45,
+                    nnhi: 1.59,
+                    distance: 66.61
                 }
             },
             {
@@ -308,9 +308,9 @@ class CityMap {
                 lng: 121.4737,
                 lat: 31.2304,
                 indicators: {
-                    bypass: 82.7,
-                    nnhi: 3.5,
-                    distance: 11.2
+                    bypass: 79.84,
+                    nnhi: 17.85,
+                    distance: 211.74
                 }
             },
             {
@@ -321,9 +321,9 @@ class CityMap {
                 lng: 114.0579,
                 lat: 22.5431,
                 indicators: {
-                    bypass: 79.8,
-                    nnhi: 3.4,
-                    distance: 10.3
+                    bypass: 79.13,
+                    nnhi: 14.63,
+                    distance: 323.07
                 }
             },
             {
@@ -334,9 +334,9 @@ class CityMap {
                 lng: 89.1841,
                 lat: 42.9476,
                 indicators: {
-                    bypass: 67.3,
-                    nnhi: 2.0,
-                    distance: 5.2
+                    bypass: 23.99,
+                    nnhi: 1.34,
+                    distance: 54.11
                 }
             },
             {
@@ -347,9 +347,9 @@ class CityMap {
                 lng: 114.3054,
                 lat: 30.5931,
                 indicators: {
-                    bypass: 76.5,
-                    nnhi: 3.0,
-                    distance: 8.5
+                    bypass: 82.03,
+                    nnhi: 14.41,
+                    distance: 185.80
                 }
             }
         ];
@@ -433,7 +433,7 @@ class CityMap {
                     <div class="indicator-item">
                         <div class="indicator-row">
                             <span class="indicator-name">Extra Travel Distance</span>
-                            <span class="indicator-value">${city.indicators.distance} km</span>
+                            <span class="indicator-value">${city.indicators.distance}%</span>
                         </div>
                         <div class="indicator-bar">
                             <div class="bar-fill" style="width: ${distancePercent}%; background: linear-gradient(90deg, #50c878, #7de89d);"></div>
